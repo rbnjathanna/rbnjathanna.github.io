@@ -32,10 +32,12 @@
 				.hide-mobile{display:none!important;}
 				.show-mobile{display:inline-block;}
 				#accordion span{width:50%!important;}
+				.carousel-inner img{height: 400px;width: 100%;}
 			}
 
 			@media(min-width:768px){
 				.bg-color{margin-top: -160px;padding-top: 10em !important;}
+				.carousel-inner img{height: 400px;width: 100%;}
 			}
 		</style>
   	</head>
@@ -72,13 +74,45 @@
 
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img src='images/reuben-1.png' />
+						<div class="d-md-flex no-gutters slider-text align-items-end justify-content-end">
+							<div id='section-1' class="one-third js-fullheight order-md-last img" style='text-align:center;'>
+								<img src='images/reuben-1.png' />
+							</div>
+							<div class="one-forth d-flex align-items-center ftco-animate">
+								<div class="text">
+									<span class="subheading">Hello!</span>
+									<h1 class="mb-4 mt-3">I'm <span>Reuben Jathanna</span></h1>
+									<h2 class="mb-4">A Full Stack Web Developer</h2>
+									<p><a href="#" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My Projects</a></p>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="carousel-item">
-						<img src='images/reuben-2.png' />
+						<div class="d-flex no-gutters slider-text align-items-end justify-content-end">
+							<div id='section-2' class="one-third js-fullheight order-md-last img">
+								<img src='images/reuben-2.png' />
+							</div>
+							<div class="one-forth d-flex align-items-center ftco-animate">
+								<div class="text">
+									<h1 class="mb-4 mt-3">And an <span>Ionic Developer</span> from Bangalore</h1>
+									<p><a href="#" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My Projects</a></p>
+								</div>
+							</div>
+						</div>
 					</div>
 					<div class="carousel-item">
-						<img src='images/reuben-3.png' />
+						<div class="d-flex no-gutters slider-text align-items-end justify-content-end">
+							<div id='section-3' class="one-third js-fullheight order-md-last img">
+								<img src='images/reuben-3.png' />
+							</div>
+							<div class="one-forth d-flex align-items-center ftco-animate">
+								<div class="text">
+									<h1 class="mb-4 mt-3">I am available for <span>Freelancing</span>.</h1>
+									<p><a href="#" class="btn btn-primary py-3 px-4">Hire me</a> <a href="#skills-section" class="btn btn-white btn-outline-white py-3 px-4">My Skills</a></p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
