@@ -310,12 +310,17 @@ function focusedField(arrayId){
                     $($(this).parent('.form-group').find('span')).show();
                     $(this).addClass("errorBorder");           
                 }else{
-					if(reg.test($(this).val()) == false){
-						$($(this).parent('.form-group').find('span')).show();
-                    	$(this).addClass("errorBorder");
+					if($(this).attr("class").indexOf("email") !== -1){
+						if(reg.test($(this).val()) == false){
+							$($(this).parent('.form-group').find('span')).show();
+							$(this).addClass("errorBorder");
+						}else{
+							$($(this).parent('.form-group').find('span')).hide();
+							$(this).removeClass("errorBorder");
+						}
 					}else{
 						$($(this).parent('.form-group').find('span')).hide();
-                    	$(this).removeClass("errorBorder");
+						$(this).removeClass("errorBorder");
 					}
                 }
             }else{
