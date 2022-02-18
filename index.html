@@ -702,7 +702,7 @@
 
 				<div class="row no-gutters block-9">
 					<div class="col-md-6 order-md-last d-flex">
-						<form class="bg-light p-4 p-md-5 contact-form">
+						<div class="bg-light p-4 p-md-5 contact-form">
 							<div class="form-group">
 								<input type="text" id='enquirer_name' class="form-control" placeholder="Your Name">
 							</div>
@@ -719,9 +719,9 @@
 								<textarea name="" id="enquirer_message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
 							</div>
 							<div class="form-group">
-								<button class="btn btn-primary py-3 px-5" (onclick)='submitQuery(event);'>Send Message</button>
+								<button class="btn btn-primary py-3 px-5" (onclick)='submitQuery();'>Send Message</button>
 							</div>
-						</form>
+						</div>
 					</div>
 
 					<div class="col-md-6 d-flex px-3 hide-mobile">
@@ -802,8 +802,7 @@
 		<script src="js/main.js"></script>
 
 		<script>
-			function submitQuery(event){
-				event.preventDefault();
+			function submitQuery(){
 				var data = {
 					visitor_name: $('#enquirer_name').val(),
 					visitor_email_id: $('#enquirer_email').val(),
