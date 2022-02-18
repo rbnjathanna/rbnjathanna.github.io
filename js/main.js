@@ -285,7 +285,7 @@ function submitEnquiryDtls(e){
 				$('#modal-msg').html(result.message);
 				$('#alert-msg').modal('show');
 			}
-		});
+		})
 	}
 }
 
