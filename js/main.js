@@ -263,7 +263,8 @@ function paginate(id,cls){
 	$('.'+id).addClass('active');
 }
 
-function submitEnquiryDtls(){
+function submitEnquiryDtls(e){
+	e.preventDefault();
 	var data = {
 		visitor_name: $('#enquirer_name').val(),
 		visitor_email_id: $('#enquirer_email').val(),
