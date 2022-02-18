@@ -290,20 +290,6 @@ function submitEnquiryDtls(e){
 	}
 }
 
-function showToolTip(tip_appear,msg,showError){
-    if(showError=="true"){
-        $(tip_appear).addClass("errorBorder");
-        $(tip_appear).tooltip({'title':msg});
-    }else if(showError=="false"){
-        $(tip_appear).removeClass("errorBorder");
-        $(tip_appear).tooltip('destroy');
-    }else{
-        $(tip_appear).attr("data-toggle","tooltip");    
-        $(tip_appear).attr("data-original-title",msg);
-        $(tip_appear).tooltip("show");
-    }
-}
-
 function focusedField(arrayId){    
     for(var i=0;i<arrayId.length;i++){
         $("#"+arrayId[i].id).keyup(function(){
@@ -331,25 +317,6 @@ function focusedField(arrayId){
             }            
         });       
     }
-
-    /* if($("#"+arrayId[0].id).hasClass("email")){
-        if($("#"+arrayId[0].id).val().length<1){
-            $($(this).parent('.form-group').find('span')).show();  
-			$(this).addClass("errorBorder"); 
-        }else{
-            $($(this).parent('.form-group').find('span')).hide();  
-			$(this).removeClass("errorBorder"); 
-        }
-    }else{
-        var to_display="";
-        if($(this).attr("placeholder")=="" || $(this).attr("placeholder")==undefined){
-            to_display=this_field;
-        }else{
-            to_display=arrayId[0].placeholder;
-        }
-        $("#"+arrayId[0].id).tooltip({'trigger':'focus','title':to_display+" "+ require});
-        $("#"+arrayId[0].id).focus();
-    } */
 }
 
 var emailValidate="", validate="false", reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
