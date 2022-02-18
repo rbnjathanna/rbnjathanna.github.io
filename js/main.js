@@ -262,24 +262,3 @@ function paginate(id,cls){
 	$('#'+cls+'-paginate a').removeClass('active');
 	$('.'+id).addClass('active');
 }
-
-function submitQuery(event){
-	event.preventDefault();
-	var data = {
-		visitor_name: $('#enquirer_name').val(),
-		visitor_email_id: $('#enquirer_email').val(),
-		visitor_contact_number: $('#enquirer_number').val(),
-		message: $('#enquirer_message').val(),
-		subject: $('#enquirer_subject').val()
-	}
-
-	$.ajax({
-		url: "http://localhost:3000/contact/enquiry",
-		type: "POST",
-		contentType: 'application/json',
-		data: JSON.stringify(data),
-		success: function(result){
-			$("#div1").html(result);
-	  	}
-	});
-}
