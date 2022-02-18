@@ -279,6 +279,7 @@ function submitEnquiryDtls(e){
 		contentType: 'application/json',
 		data: JSON.stringify(data),
 		success: function(result){
+			(result.status == 200) ? $('#alert-msg .modal-body').addClass('success-modal') : $('#alert-msg .modal-body').addClass('danger-modal');
 			$('#modal-msg').html(result.message);
 			$('#alert-msg').modal('show');
 		}
