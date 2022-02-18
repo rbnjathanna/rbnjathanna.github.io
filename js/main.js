@@ -284,6 +284,7 @@ function submitEnquiryDtls(e){
 				(result.status == 200) ? $('#alert-msg .modal-body').addClass('success-modal') : $('#alert-msg .modal-body').addClass('danger-modal');
 				$('#modal-msg').html(result.message);
 				$('#alert-msg').modal('show');
+				$("#contact-form")[0].reset();
 			}
 		})
 	}
