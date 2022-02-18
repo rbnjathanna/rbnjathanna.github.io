@@ -54,7 +54,9 @@
   	<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">	  
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
 			<div class="container">
-				<a class="navbar-brand" href="index.html">RJ</a>
+				<a class="navbar-brand" href="index.html">
+					<img src='./images/logo.png' />
+				</a>
 				<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="oi oi-menu"></span> Menu
 				</button>
@@ -491,6 +493,17 @@
 		</footer>
 
 		<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+        <div id="alert-msg" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-sm">
+			  	<div class="modal-content">
+					<div class="modal-body">
+						<span class="close" data-dismiss="modal">&times;</span>
+				  		<p id='modal-msg'> </p>
+					</div>
+			  	</div>		  
+			</div>
+		</div>
 
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery-migrate-3.0.1.min.js"></script>
