@@ -719,7 +719,7 @@
 								<textarea name="" id="enquirer_message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
 							</div>
 							<div class="form-group">
-								<button class="btn btn-primary py-3 px-5" (onclick)='submitQuery();'>Send Message</button>
+								<button class="btn btn-primary py-3 px-5" (onclick)='submitEnquiryDtls();'>Send Message</button>
 							</div>
 						</div>
 					</div>
@@ -802,7 +802,7 @@
 		<script src="js/main.js"></script>
 
 		<script>
-			function submitQuery(){
+			function submitEnquiryDtls(){
 				var data = {
 					visitor_name: $('#enquirer_name').val(),
 					visitor_email_id: $('#enquirer_email').val(),
