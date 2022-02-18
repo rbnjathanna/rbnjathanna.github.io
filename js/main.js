@@ -275,7 +275,8 @@ function submitEnquiryDtls(e){
 		}
 	
 		$.ajax({
-			url: "http://localhost:3000/contact/enquiry",
+			//url: "http://localhost:3000/contact/enquiry",
+			url: "https://pfapi.herokuapp.com/contact/enquiry",
 			type: "POST",
 			contentType: 'application/json',
 			data: JSON.stringify(data),
