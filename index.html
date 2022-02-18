@@ -704,18 +704,22 @@
 
 				<div class="row no-gutters block-9">
 					<div class="col-md-6 order-md-last d-flex">
-						<form class="bg-light p-4 p-md-5 contact-form">
+						<form id='contact-form' class="bg-light p-4 p-md-5 contact-form">
 							<div class="form-group">
-								<input type="text" id='enquirer_name' class="form-control" placeholder="Your Name">
+								<input type="text" id='enquirer_name' class="form-control required" placeholder="Your Name">
+								<span class='error-msg'>Name is required</span>
 							</div>
 							<div class="form-group">
-								<input type="text" id='enquirer_email' class="form-control" placeholder="Your Email">
+								<input type="text" id='enquirer_email' class="form-control required" placeholder="Your Email">
+								<span class='error-msg'>Invalid Email Id</span>
 							</div>
 							<div class="form-group">
-								<input type="text" id='enquirer_number' class="form-control" placeholder="Contact Number">
+								<input type="text" id='enquirer_number' class="form-control required" placeholder="Contact Number">
+								<span class='error-msg'>Invalid Contact Number</span>
 							</div>
 							<div class="form-group">
-								<input type="text" id='enquirer_subject' class="form-control" placeholder="Subject">
+								<input type="text" id='enquirer_subject' class="form-control required" placeholder="Subject">
+								<span class='error-msg'>Subject is required</span>
 							</div>
 							<div class="form-group">
 								<textarea name="" id="enquirer_message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
@@ -800,7 +804,7 @@
 			  	</div>		  
 			</div>
 		</div>
-		
+
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery-migrate-3.0.1.min.js"></script>
 		<script src="js/popper.min.js"></script>

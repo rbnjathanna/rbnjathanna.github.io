@@ -265,23 +265,132 @@ function paginate(id,cls){
 
 function submitEnquiryDtls(e){
 	e.preventDefault();
-	var data = {
-		visitor_name: $('#enquirer_name').val(),
-		visitor_email_id: $('#enquirer_email').val(),
-		visitor_contact_number: $('#enquirer_number').val(),
-		message: $('#enquirer_message').val(),
-		subject: $('#enquirer_subject').val()
-	}
-
-	$.ajax({
-		url: "http://localhost:3000/contact/enquiry",
-		type: "POST",
-		contentType: 'application/json',
-		data: JSON.stringify(data),
-		success: function(result){
-			(result.status == 200) ? $('#alert-msg .modal-body').addClass('success-modal') : $('#alert-msg .modal-body').addClass('danger-modal');
-			$('#modal-msg').html(result.message);
-			$('#alert-msg').modal('show');
+	if(validation()){
+		var data = {
+			visitor_name: $('#enquirer_name').val(),
+			visitor_email_id: $('#enquirer_email').val(),
+			visitor_contact_number: $('#enquirer_number').val(),
+			message: $('#enquirer_message').val(),
+			subject: $('#enquirer_subject').val()
 		}
-	});
+	
+		$.ajax({
+			url: "http://localhost:3000/contact/enquiry",
+			type: "POST",
+			contentType: 'application/json',
+			data: JSON.stringify(data),
+			success: function(result){
+				(result.status == 200) ? $('#alert-msg .modal-body').addClass('success-modal') : $('#alert-msg .modal-body').addClass('danger-modal');
+				$('#modal-msg').html(result.message);
+				$('#alert-msg').modal('show');
+			}
+		});
+	}
 }
+
+function showToolTip(tip_appear,msg,showError){
+    if(showError=="true"){
+        $(tip_appear).addClass("errorBorder");
+        $(tip_appear).tooltip({'title':msg});
+    }else if(showError=="false"){
+        $(tip_appear).removeClass("errorBorder");
+        $(tip_appear).tooltip('destroy');
+    }else{
+        $(tip_appear).attr("data-toggle","tooltip");    
+        $(tip_appear).attr("data-original-title",msg);
+        $(tip_appear).tooltip("show");
+    }
+}
+
+function focusedField(arrayId){    
+    for(var i=0;i<arrayId.length;i++){
+        $("#"+arrayId[i].id).keyup(function(){
+            if(validate=="true"){
+                if($(this).val().length<1){
+                    $($(this).parent('.form-group').find('span')).show();
+                    $(this).addClass("errorBorder");           
+                }else{
+					if(reg.test($(this).val()) == false){
+						$($(this).parent('.form-group').find('span')).show();
+                    	$(this).addClass("errorBorder");
+					}else{
+						$($(this).parent('.form-group').find('span')).hide();
+                    	$(this).removeClass("errorBorder");
+					}
+                }
+            }else{
+                $($(this).parent('.form-group').find('span')).hide();  
+				$(this).removeClass("errorBorder"); 
+            }            
+        });       
+    }
+
+    /* if($("#"+arrayId[0].id).hasClass("email")){
+        if($("#"+arrayId[0].id).val().length<1){
+            $($(this).parent('.form-group').find('span')).show();  
+			$(this).addClass("errorBorder"); 
+        }else{
+            $($(this).parent('.form-group').find('span')).hide();  
+			$(this).removeClass("errorBorder"); 
+        }
+    }else{
+        var to_display="";
+        if($(this).attr("placeholder")=="" || $(this).attr("placeholder")==undefined){
+            to_display=this_field;
+        }else{
+            to_display=arrayId[0].placeholder;
+        }
+        $("#"+arrayId[0].id).tooltip({'trigger':'focus','title':to_display+" "+ require});
+        $("#"+arrayId[0].id).focus();
+    } */
+}
+
+var emailValidate="", validate="false", reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+function validation(form_name='contact-form'){
+    flagSet = 1;
+    var arrayId=[];
+    validate="true";
+    $('#'+form_name+' input.required,#'+form_name+' textarea.required').each(function(){
+        var id = $(this).attr("id");
+        var classname = $(this).attr("class");
+        
+        if($(this).val() == '' || $(this).val() == 0 || $(this).val() == null){
+            if(classname.indexOf("email") !== -1){
+                emailValidate="true";
+            }
+            flagSet = 0;
+            $("#"+id).addClass("errorBorder");
+            $($(this).parent('.form-group').find('span')).show();
+
+            arrayId.push({
+                "id":$(this).attr("id"),
+                "emailIndexOf":classname.indexOf("email")
+            });
+        }else if(classname.indexOf("email") !== -1){
+            if(reg.test($("#"+id).val()) == false){
+                flagSet = 0;
+                $("#"+id).addClass("errorBorder");
+				$($(this).parent('.form-group').find('span')).show();
+                arrayId.push({
+                    "id":$(this).attr("id"),
+                    "emailIndexOf":classname.indexOf("email")
+                });    
+                emailValidate="true";
+            }else{
+                $("#"+id).removeClass("errorBorder");
+				$($(this).parent('.form-group').find('span')).hide();
+                emailValidate="false";
+            }
+        }else{
+			$($(this).parent('.form-group').find('span')).hide();
+            $("#"+id).removeClass("errorBorder");
+        }
+    });
+    if(flagSet == 1){
+        return true;
+    }else{
+        focusedField(arrayId);                    
+        return false;
+    }
+}  
