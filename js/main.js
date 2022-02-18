@@ -279,7 +279,8 @@ function submitEnquiryDtls(e){
 		contentType: 'application/json',
 		data: JSON.stringify(data),
 		success: function(result){
-			$("#div1").html(result);
+			$('#modal-msg').html(result.message);
+			$('#alert-msg').modal('show');
 		}
 	});
 }

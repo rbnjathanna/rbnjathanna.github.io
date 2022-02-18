@@ -30,6 +30,8 @@
 			.one-forth span{color:#ffbd39;}
 			#home-section h1{font-size: 60px;color: #fff;line-height: 1.2;font-weight: 800;}
 			#home-section p{color: rgba(0, 0, 0, 0.8);font-weight: 400;font-size: 20px;line-height: 1.5;margin-top:15px;}
+			.success-modal{background-color: #ffbd38;color: #333;}
+			.danger-modal{background-color: #f36e6e;color: #fff;}
 
 			@media(max-width:767px){
 				.hide-mobile{display:none!important;}
@@ -788,6 +790,17 @@
 
 		<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
+		<div id="alert-msg" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-sm">
+			  	<div class="modal-content">
+					<div class="modal-body">
+						<span class="close" data-dismiss="modal">&times;</span>
+				  		<p id='modal-msg'> </p>
+					</div>
+			  	</div>		  
+			</div>
+		</div>
+		
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery-migrate-3.0.1.min.js"></script>
 		<script src="js/popper.min.js"></script>
