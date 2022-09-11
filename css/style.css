@@ -9666,6 +9666,16 @@ textarea.form-control {
   animation: loader-dash 1.5s ease-in-out infinite;
   stroke-linecap: round; }
 
+.mobile-redirect-project{
+  color:#fff;
+  padding:11px 15px!important;
+  animation: ripple 2s linear infinite;
+}
+
+.mobile-redirect-project .fi-rr-redo{
+  font-size: 19px;
+}
+
 @-webkit-keyframes loader-rotate {
   100% {
     -webkit-transform: rotate(360deg);
@@ -9697,3 +9707,18 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0rem rgba(255,255,255, 0.2),
+                0 0 0 1rem rrgba(255,255,255, 0.2),
+                0 0 0 2rem rgba(255,255,255, 0.2),
+                0 0 0 5rem rgba(255,255,255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 1rem rgba(255,255,255, 0.2),
+                0 0 0 2rem rgba(255,255,255, 0.2),
+                0 0 0 5rem rgba(255,255,255, 0.2),
+                0 0 0 8rem rgba(255,255,255, 0.2);
+  }
+}
