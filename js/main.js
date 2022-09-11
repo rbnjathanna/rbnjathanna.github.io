@@ -242,7 +242,7 @@
 })(jQuery);
 
 $(document).ready(function(){
-	if(screen.width <= 767 ){
+	if(screen.width > 767 ){
 		equalHt('exp-box');
 		equalHt('project-desc p');
 	}
