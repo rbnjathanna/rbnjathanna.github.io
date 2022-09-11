@@ -9403,7 +9403,8 @@ textarea.form-control {
   border-radius: 4px; }
   @media (max-width: 991.98px) {
     .contact-section .box {
-      margin-bottom: 30px; } }
+      margin-bottom: 30px; } 
+    .blog-entry{width:100%;}}
   .contact-section .box .icon {
     width: 100px;
     height: 100px;
