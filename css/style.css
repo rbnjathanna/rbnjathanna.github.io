@@ -9669,7 +9669,7 @@ textarea.form-control {
 .mobile-redirect-project{
   color:#fff;
   padding:11px 15px!important;
-  animation: ripple 2s linear 1s infinite;
+  animation: ripple 2s linear infinite;
 }
 
 .mobile-redirect-project .fi-rr-redo{
