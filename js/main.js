@@ -160,7 +160,6 @@
 				$('.number').each(function(){
 					var $this = $(this),
 						num = $this.data('number');
-						console.log(num);
 					$this.animateNumber(
 					  {
 					    number: num,
@@ -243,8 +242,10 @@
 })(jQuery);
 
 $(document).ready(function(){
-	equalHt('exp-box');
-	equalHt('project-desc p');
+	if(screen.width <= 767 ){
+		equalHt('exp-box');
+		equalHt('project-desc p');
+	}
 })
 
 function equalHt(cls){
